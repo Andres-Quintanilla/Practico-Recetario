@@ -13,12 +13,10 @@ class DetalleRecetaActivity : AppCompatActivity() {
         binding = ActivityDetalleRecetaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Obtener los datos enviados
         val nombre = intent.getStringExtra("nombre") ?: "Sin nombre"
         val ingredientes = intent.getStringExtra("ingredientes") ?: "Sin ingredientes"
         val preparacion = intent.getStringExtra("preparacion") ?: "Sin preparación"
 
-        // Mostrar datos en pantalla
         binding.tvNombreReceta.text = nombre
         binding.tvIngredientesReceta.text = "Ingredientes:\n$ingredientes"
         binding.tvPreparacionReceta.text = "Preparación:\n$preparacion"
