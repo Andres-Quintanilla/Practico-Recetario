@@ -28,7 +28,6 @@ object RecetaRepository {
             Receta(nombre = "Sopa de verduras", ingredientes = "Zanahoria, Papa, Cebolla, Pimiento", preparacion = "Hervir todos los vegetales en agua con sal."),
             Receta(nombre = "Pescado al ajo", ingredientes = "Pescado, Ajo, Perejil", preparacion = "Cocinar el pescado con ajo y espolvorear perejil."),
             Receta(nombre = "Yuca frita", ingredientes = "Yuca, Sal", preparacion = "Hervir la yuca y luego freírla."),
-            Receta(nombre = "Tortilla de huevo", ingredientes = "Huevo, Cebolla, Pimiento", preparacion = "Batir huevos, agregar cebolla y pimiento picado y cocinar.")
         ).filter { it.nombre.trim().lowercase() !in existentes }
 
         lista.forEach { dao.insertar(it) }

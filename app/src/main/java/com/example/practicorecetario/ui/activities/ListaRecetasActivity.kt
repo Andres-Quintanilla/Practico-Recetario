@@ -36,8 +36,7 @@ class ListaRecetasActivity : AppCompatActivity() {
         recetaViewModel.cargarRecetas(this, ingredientesSeleccionados)
 
         binding.btnAgregarReceta.setOnClickListener {
-            // Asegúrate de tener esta Activity declarada en el manifest
-            // startActivity(Intent(this, AgregarRecetaActivity::class.java))
+             startActivity(Intent(this, AgregarRecetaActivity::class.java))
         }
     }
 

@@ -23,6 +23,7 @@
         </activity>
         <activity android:name="com.example.recetario.ui.activities.ListaRecetasActivity" />
         <activity android:name="com.example.recetario.ui.activities.DetalleRecetaActivity" />
+        <activity android:name="com.example.recetario.ui.activities.AgregarRecetaActivity"/>
 
 
     </application>

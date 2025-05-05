@@ -19,17 +19,27 @@ class RecetaViewModel : ViewModel() {
             val filtradas = if (ingredientesSeleccionados.isEmpty()) {
                 todas
             } else {
-                todas.filter { receta ->
-                    val ingredientesReceta = receta.ingredientes.split(",").map { it.trim() }
-                    ingredientesSeleccionados.any { it in ingredientesReceta }
-                }.sortedByDescending { receta ->
-                    val ingredientesReceta = receta.ingredientes.split(",").map { it.trim() }
-                    ingredientesSeleccionados.count { it in ingredientesReceta }
+                val recetasFiltradas = todas.filter { receta ->
+                    val lista = receta.ingredientes.split(",").map { it.trim() }
+                    ingredientesSeleccionados.all { it in lista } && lista.size == ingredientesSeleccionados.size
                 }
+
+                if (recetasFiltradas.isEmpty()) {
+                    // Si no hay una receta exacta y hay más de 1 ingrediente seleccionado, no mostrar nada
+                    if (ingredientesSeleccionados.size > 1) emptyList()
+                    else {
+                        // Si seleccionó solo un ingrediente, entonces sí mostramos todas las que lo contengan
+                        todas.filter { receta ->
+                            val lista = receta.ingredientes.split(",").map { it.trim() }
+                            ingredientesSeleccionados.any { it in lista }
+                        }
+                    }
+                } else recetasFiltradas
             }
 
             recetas.postValue(filtradas)
         }
     }
+
 }
 
