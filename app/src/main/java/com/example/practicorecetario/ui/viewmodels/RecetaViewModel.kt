@@ -25,10 +25,8 @@ class RecetaViewModel : ViewModel() {
                 }
 
                 if (recetasFiltradas.isEmpty()) {
-                    // Si no hay una receta exacta y hay más de 1 ingrediente seleccionado, no mostrar nada
                     if (ingredientesSeleccionados.size > 1) emptyList()
                     else {
-                        // Si seleccionó solo un ingrediente, entonces sí mostramos todas las que lo contengan
                         todas.filter { receta ->
                             val lista = receta.ingredientes.split(",").map { it.trim() }
                             ingredientesSeleccionados.any { it in lista }

@@ -13,10 +13,8 @@ class MainViewModel : ViewModel() {
 
     fun cargarIngredientes(context: Context) {
         viewModelScope.launch {
-            // SIEMPRE intentar insertar nuevos ingredientes
             IngredienteRepository.insertarEjemploIngredientes(context)
 
-            // Luego cargar lo que haya
             ingredientes.postValue(IngredienteRepository.obtenerIngredientes(context))
         }
     }

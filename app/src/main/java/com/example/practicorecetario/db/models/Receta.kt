@@ -8,6 +8,6 @@ data class Receta(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val nombre: String,
-    val ingredientes: String, // Texto separado por comas
+    val ingredientes: String,
     val preparacion: String
 )
